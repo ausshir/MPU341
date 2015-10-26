@@ -5,6 +5,7 @@ source_file = 1, C:/Users/Austin/Documents/GitHub/MPU341/design/instruction_deco
 source_file = 1, C:/Users/Austin/Documents/GitHub/MPU341/design/program_sequencer.v
 source_file = 1, C:/Users/Austin/Documents/GitHub/MPU341/design/computational_unit.v
 source_file = 1, C:/Users/Austin/Documents/GitHub/MPU341/design/data_memory.v
+source_file = 1, C:/Users/Austin/Documents/GitHub/MPU341/design/MPU341.sdc
 source_file = 1, C:/Users/Austin/Documents/GitHub/MPU341/design/db/MPU34_top.cbx.xml
 design_name = MPU341_top
 instance = comp, \o_reg[0]~output , o_reg[0]~output, MPU341_top, 1

@@ -58,4 +58,5 @@ set_global_assignment -name VERILOG_FILE instruction_decoder.v
 set_global_assignment -name VERILOG_FILE program_sequencer.v
 set_global_assignment -name VERILOG_FILE computational_unit.v
 set_global_assignment -name VERILOG_FILE data_memory.v
+set_global_assignment -name SDC_FILE MPU341.sdc
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
