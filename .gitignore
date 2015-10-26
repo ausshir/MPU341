@@ -11,3 +11,8 @@
 **/db
 **/incremental_db
 *.done
+*.rpt
+*.smsg
+*.summary
+*.jdi
+*.pin

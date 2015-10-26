@@ -1,5 +1,8 @@
 module data_memory(
-	//IO
-	);
+	input clk,
+	input w_en,
+	input [3:0] addr,
+	input [3:0] data_in,
+	output [3:0] data_out);
 	
 endmodule
