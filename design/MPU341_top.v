@@ -46,7 +46,7 @@ module MPU341_top(
 		//reg_enables[7]
 		//data_bus
 		//data_mem_addr
-	wire [3:0] dn;
+	wire [3:0] dm;
 	wire clk_n_RAM; assign clk_n_RAM = ~clk;
 	
 	//// Program Memory (ROM) Connections ////
@@ -76,7 +76,7 @@ module MPU341_top(
 												.jmp(jump),
 												.jmp_nz(conditional_jump),
 												.ir(LS_nibble_ir),
-												.i_sel(i_reg_select),
+												.i_sel(i_mux_select),
 												.y_sel(y_reg_select),
 												.x_sel(x_reg_select),
 												.source_sel(source_select),
@@ -84,7 +84,7 @@ module MPU341_top(
 		
 	computational_unit comp_unit(.clk(clk), .sync_reset(sync_reset),
 												.nibble_ir(LS_nibble_ir),
-												.i_sel(i_reg_select),
+												.i_sel(i_mux_select),
 												.y_sel(y_reg_select),
 												.x_sel(x_reg_select),
 												.source_sel(source_select),

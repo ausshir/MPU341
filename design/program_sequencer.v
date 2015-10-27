@@ -12,25 +12,30 @@ module program_sequencer(
 	//		If conditional, the ALU determines if the jump may occur
 	//		Program counter loops at 8'hFF
 	
+	reg [7:0] prog_count;
 	always @(posedge clk)
+		prog_count = pm_addr + 1'h01;
+
+	
+	always @ *
 		if(sync_reset)
 			pm_addr = 8'h00;
 		
 		else if(jmp)
-			pm_addr = jmp_addr;
+			pm_addr = {jmp_addr,4'h0};
 		
 		else if(jmp_nz)
 			if(dont_jmp)
-				if(pm_addr == 8'hFF)
+				if(prog_count == 8'hFF)
 					pm_addr = 8'h00;
 				else
-					pm_addr = pm_addr + 8'h01;
+					pm_addr = prog_count;
 			else //jump allowed
-				pm_addr = jmp_addr;
+				pm_addr = {jmp_addr,4'h0};
 		
 		else if(pm_addr == 8'hFF)
 			pm_addr = 8'h00;
 		else
-			pm_addr = pm_addr + 8'h01;
+			pm_addr = prog_count;
 		
 endmodule

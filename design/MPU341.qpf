@@ -18,13 +18,13 @@
 #
 # Quartus II 64-Bit
 # Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-# Date created = 10:11:13  October 26, 2015
+# Date created = 19:26:24  October 26, 2015
 #
 # -------------------------------------------------------------------------- #
 
 QUARTUS_VERSION = "13.1"
-DATE = "10:11:13  October 26, 2015"
+DATE = "19:26:24  October 26, 2015"
 
 # Revisions
 
-PROJECT_REVISION = "MPU34_top"
+PROJECT_REVISION = "MPU341_top"
