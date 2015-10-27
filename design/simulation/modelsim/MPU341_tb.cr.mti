@@ -1,11 +1,18 @@
-C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/MPU341_top.vo {1 {vlog -work work C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/MPU341_top.vo
+C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v {1 {vlog -work work C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_program_sequencer_2
+
+Top level modules:
+	test_program_sequencer_2
+
+} {} {}} C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/MPU341_top.vo {1 {vlog -work work C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/MPU341_top.vo
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module program_sequencer
 
 Top level modules:
 	program_sequencer
 
-} {} {}} C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v {1 {vlog -work work C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v
+} {} {}} C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v {1 {vlog -work work {C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_sequencer.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module test_program_sequencer
 
