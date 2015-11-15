@@ -2,7 +2,13 @@ module MPU341_top(
 	input reset,
 	input clk,
 	input [3:0] i_pins,
-	output [3:0] o_reg);
+	output [3:0] o_reg
+	);
+	
+	// Note that the MPU accurately simulates the hardware and
+	//		needs to be run at a reasonable clock speed!
+	//		T_setup = 5ns and T_hold = 2ns
+	
 	
 	
 	//// Program Sequencer Connections ////

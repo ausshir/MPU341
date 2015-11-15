@@ -23,12 +23,12 @@ Z13 !s90 -reportprogress|300|-work|work|C:/Users/Austin/Documents/GitHub/MPU341/
 !i10b 1
 !s85 0
 !s101 -O0
-vprogram_sequencer
-Z14 !s100 z<A?d[U>_9nJ=nU?h<Wjj1
-Z15 IPnJg28mZhKW0?A_GMTmK23
-Z16 V=lhQgPc=?l2Yc`YjK0cU01
+vprogram_memory
+Z14 !s100 SPQC1C[1QT65lo^nLAiao1
+Z15 IggfC[?fnQ8b95IF`^6IdK1
+Z16 Vn0TRQ0LDA@E8lk7NKYh?22
 R3
-Z17 w1445913670
+Z17 w1447465315
 R5
 R6
 L0 31
@@ -37,46 +37,84 @@ r1
 31
 R13
 R8
-Z18 !s108 1445918402.898000
+Z18 !s108 1447466065.718000
 R12
 !i10b 1
 !s85 0
 !s101 -O0
-vtest_program_sequencer
-Z19 !s100 7S4f`cBl39e[Yd_XYaMCI0
-Z20 IHadSFbFYDY2ZcBMQN3:8D0
-Z21 V@?z0c6SKOL@O_ao[Tzk841
+vprogram_sequencer
+Z19 !s100 z<A?d[U>_9nJ=nU?h<Wjj1
+Z20 IPnJg28mZhKW0?A_GMTmK23
+Z21 V=lhQgPc=?l2Yc`YjK0cU01
 R3
-Z22 w1445911759
-Z23 8C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_sequencer.v
-Z24 FC:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_sequencer.v
+Z22 w1445913670
+R5
+R6
+L0 31
+R7
+r1
+31
+R13
+R8
+Z23 !s108 1445918402.898000
+R12
+!i10b 1
+!s85 0
+!s101 -O0
+vtest_program_memory
+!i10b 1
+!s100 mT=B11:<:j7m=]jjYEa<I0
+INf8?FFMCYEImShD>f^;K]2
+Z24 VV`XhML@1gflUDb6C0Vfen1
+R3
+w1447466062
+Z25 8C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_memory.v
+Z26 FC:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_memory.v
+L0 6
+R7
+r1
+!s85 0
+31
+!s108 1447466065.918000
+!s107 C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_memory.v|
+Z27 !s90 -reportprogress|300|-work|work|C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_memory.v|
+!s101 -O0
+R8
+vtest_program_sequencer
+Z28 !s100 L5FfeAd:02z071lm6J;:_3
+Z29 I9^09A:0RcK@n7o?MgVG@a1
+Z30 V@?z0c6SKOL@O_ao[Tzk841
+R3
+Z31 w1445911759
+Z32 8C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v
+Z33 FC:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v
 L0 5
 R7
 r1
 31
-Z25 !s90 -reportprogress|300|-work|work|C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_sequencer.v|
+Z34 !s90 -reportprogress|300|-work|work|C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v|
 R8
+Z35 !s108 1447466065.785000
+Z36 !s107 C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer.v|
 !i10b 1
 !s85 0
-Z26 !s108 1445918403.054000
-Z27 !s107 C:\Users\Austin\Documents\GitHub\MPU341\design\simulation\modelsim\test_program_sequencer.v|
 !s101 -O0
 vtest_program_sequencer_2
-!i10b 1
-!s100 NQdm`bcgXHEgUoi5Dg;Xo1
-IgPI6Pz=M:2^oX>[_DL8El1
-VI8^3oYP4nZ^^?E<oIBiOa1
+Z37 !s100 NQdm`bcgXHEgUoi5Dg;Xo1
+Z38 IgPI6Pz=M:2^oX>[_DL8El1
+Z39 VI8^3oYP4nZ^^?E<oIBiOa1
 R3
-w1445918404
-8C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v
-FC:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v
+Z40 w1445918404
+Z41 8C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v
+Z42 FC:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v
 L0 5
 R7
 r1
-!s85 0
 31
-!s108 1445918404.554000
-!s107 C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v|
-!s90 -reportprogress|300|-work|work|C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v|
-!s101 -O0
+Z43 !s90 -reportprogress|300|-work|work|C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v|
 R8
+!i10b 1
+!s85 0
+Z44 !s108 1447466065.851000
+Z45 !s107 C:/Users/Austin/Documents/GitHub/MPU341/design/simulation/modelsim/test_program_sequencer_2.v|
+!s101 -O0
