@@ -48,6 +48,7 @@ module MPU341_top(
 	wire [3:0] data_bus;
 	wire zero_flag;
 	
+	
 	//// Data Memory (RAM) Connections ////
 		//reg_enables[7]
 		//data_bus
@@ -56,6 +57,8 @@ module MPU341_top(
 	wire clk_n_RAM; assign clk_n_RAM = ~clk;
 	
 	//// Program Memory (ROM) Connections ////
+	// Note that the program memory is originally designed to be
+	//	256 words X 8 bits
 		//pm_address;
 	wire [7:0] pm_data;
 	wire clk_n_ROM; assign clk_n_ROM = ~clk;
@@ -81,7 +84,7 @@ module MPU341_top(
 												.next_instr(pm_data),
 												.jmp(jump),
 												.jmp_nz(conditional_jump),
-												.ir(LS_nibble_ir),
+												.ir_nibble(LS_nibble_ir),
 												.i_sel(i_mux_select),
 												.y_sel(y_reg_select),
 												.x_sel(x_reg_select),
