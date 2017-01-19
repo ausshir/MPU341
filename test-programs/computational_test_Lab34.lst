@@ -1,0 +1,114 @@
+  0000          	ORG 00
+  0000 00       	LOAD x0,#4'H0 ;x0 = 0
+  0001 10       	LOAD x1,#4'H0 ;x1 = 0
+  0002 20       	LOAD y0,#4'H0 ;y0 = 0
+  0003 30       	LOAD y1,#4'H0 ;y1 = 0
+  0004 40       	LOAD oreg,#4'H0 ;oreg = 0
+  0005 51       	LOAD m,#4'H1 ;m = 1
+  0006 60       	LOAD i,#4'H0 ;i = 0
+  0007 80       	MOV x0,ireg ;x0 = ireg
+  0008 88       	MOV x1,x0 ;x1 = x0
+  0009 80       	MOV x0,ireg ;x0 = ireg
+  000A 91       	MOV y0,x1 ;y0 = x1
+  000B D1           SUB x1,y0 ;r = x1 - y0
+  000C F6           JNZ error ;if difference is not 0, jump to error
+  000D 88       	MOV x1,x0 ;x1 = x0
+  000E 9A       	MOV y1,y0 ;y1 = y0
+  000F 91       	MOV y0,x1 ;y0 = x1
+  0010 D1           SUB x1,y0 ;r = x1 - y0
+  0011 F6           JNZ error ;if difference is not 0, jump to error
+                
+                ; re-initialize everything for i_loop
+  0012 01       	LOAD x0,#4'H1 ;x0 = 1
+  0013 10       	LOAD x1,#4'H0 ;x1 = 0
+  0014 24       	LOAD y0,#4'H4 ;y0 = 4
+  0015 30       	LOAD y1,#4'H0 ;y1 = 0
+  0016 40       	LOAD oreg,#4'H0 ;oreg = 0
+  0017 51       	LOAD m,#4'H1 ;m = 1
+  0018 60       	LOAD i,#4'H0 ;i = 0
+  0019 E2           JMP iloop ;jump to iloop
+                
+  0020              ALIGN
+  0020          iloop:
+  0020 BA           MOV dm,y0 ;dm = y0
+  0021 8E           MOV x1,i ;x1 = i
+  0022 CA           ADD x0,y1 ;r = x0 + y1
+  0023 9C           MOV y1,r ;y1 = r, increment y1 by 1
+  0024 D9           SUB x1,y1 ;r = x0 - y1
+  0025 F6           JNZ error ;if difference is not 0, jump to error
+  0026 D7           COM x1 ;r = ~x1
+  0027 F2           JNZ iloop ;if x1 is no 4'HF repeat
+                
+                ; re-initialize everything for ALU_test
+                ; preset x0 to 4'HA and y0 to 4'H5 to do all the tests
+  0028 0A       	LOAD x0,#4'HA ;x0 = A
+  0029 10       	LOAD x1,#4'H0 ;x1 = 0
+  002A 25       	LOAD y0,#4'H5 ;y0 = 5
+  002B 30       	LOAD y1,#4'H0 ;y1 = 0
+  002C 40       	LOAD oreg,#4'H0 ;oreg = 0
+  002D 51       	LOAD m,#4'H1 ;m = 1
+  002E 60       	LOAD i,#4'H0 ;i = 0
+                
+  002F C2           ADD x0,y0 ;r = x0 + y0
+  0030 8C           MOV x1,r ;x1 = r
+  0031 3F           LOAD y1,#4'HF ;y1 = F
+  0032 D9           SUB x1,y1 ;r = x1 - y1
+  0033 F6           JNZ error ;if difference is not 0, jump to error
+                
+  0034 C1           SUB x0,y0 ;r = x0 - y0
+  0035 8C           MOV x1,r ;x1 = r
+  0036 35           LOAD y1,#4'H5 ;y1 = 5
+  0037 D9           SUB x1,y1 ;r = x1 - y1
+  0038 F6           JNZ error ;if difference is not 0, jump to error
+                
+  0039 C4           MULLO x0,y0 ;r = x0 * y0, LS nibble
+  003A 8C           MOV x1,r ;x1 = r
+  003B 32           LOAD y1,#4'H2 ;y1 = 2
+  003C D9           SUB x1,y1 ;r = x1 - y1
+  003D F6           JNZ error ;if difference is not 0, jump to error
+                
+  003E C3           MULHI x0,y0 ;r = x0 * y0, MS nibble
+  003F 8C           MOV x1,r ;x1 = r
+  0040 33           LOAD y1,#4'H3 ;y1 = 3
+  0041 D9           SUB x1,y1 ;r = x1 - y1
+  0042 F6           JNZ error ;if difference is not 0, jump to error
+                
+  0043 C6           AND x0,y0 ;r = x0 & y0
+  0044 8C           MOV x1,r ;x1 = r
+  0045 30           LOAD y1,#4'H0 ;y1 = 0
+  0046 D9           SUB x1,y1 ;r = x1 - y1
+  0047 F6           JNZ error ;if difference is not 0, jump to error
+                
+  0048 C5           XOR x0,y0 ;r = x0 ^ y0
+  0049 8C           MOV x1,r ;x1 = r
+  004A 3F           LOAD y1,#4'HF ;y1 = F
+  004B D9           SUB x1,y1 ;r = x1 - y1
+  004C F6           JNZ error ;if difference is not 0, jump to error
+                
+  004D C0           NEG x0 ;r = -x0
+  004E 8C           MOV x1,r ;x1 = r
+  004F 36           LOAD y1,#4'H6 ;y1 = 6
+  0050 D9           SUB x1,y1 ;r = x1 - y1
+  0051 F6           JNZ error ;if difference is not 0, jump to error
+                
+  0052 C7           COM x0 ;r = ~x0
+  0053 8C           MOV x1,r ;x1 = r
+  0054 35           LOAD y1,#4'H5 ;y1 = 5
+  0055 D9           SUB x1,y1 ;r = x1 - y1
+  0056 F6           JNZ error ;if difference is not 0, jump to error
+                
+  0057 E7           JMP end ; finish test
+                    
+                
+                ; error exit
+  0060              ALIGN
+  0060          error:
+  0060 41           LOAD oreg,#4'H1 ;oreg = 1
+  0061 E7           JMP end ;jump to end
+                
+                ; exit
+  0070              ALIGN
+  0070          end:
+  0070 E7           JMP end ;stay here at the end of the program
+                
+

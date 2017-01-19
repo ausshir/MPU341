@@ -7,11 +7,24 @@ module MPU341_top(
 	output [7:0] from_PS, from_ID, from_CU,
 
 	// State
-	output [7:0]  pm_address, pc, ir, pm_data,
+	output [7:0]  pc, ir, pm_data,
 	output zero_flag,
 
 	// Data Buses
-	output [3:0] dm, i, m, r, y1, y0, x1, x0, o_reg, data_bus, dm_cu
+	output [3:0] dm, i, m, r, y1, y0, x1, x0, o_reg, data_bus, dm_cu,
+
+	// Cache
+	output hold_out,
+	output [7:0] rom_address,
+	output [2:0] cache_rdoffset,
+	output [2:0] cache_wroffset,
+	output [0:0] cache_rdline,
+	output [0:0] cache_wrline,
+	output cache_wren,
+	output cache_rdentry,
+	output cache_wrentry,
+	output [7:0] cache_q
+
 	);
 
 	// Note that the MPU accurately simulates the hardware and
@@ -28,6 +41,12 @@ module MPU341_top(
 		//zero_flag
 		//clk
 		//pm_address;
+	//wire hold_out;
+	//wire [7:0] rom_address;
+	//wire [4:0] cache_rdoffset;
+	//wire [4:0] cache_wroffset;
+	//wire cache_wren;
+	//wire [7:0] cache_q;
 
 	//// Instruction decoder Connections ////
 		//pm_data
@@ -82,18 +101,36 @@ module MPU341_top(
 
 	//// MPU Module Instances ////
 	program_sequencer prog_sequencer(.clk(clk), .sync_reset(sync_reset),
-												.pm_addr(pm_address),
 												.jmp(jump),
 												.jmp_nz(conditional_jump),
 												.jmp_addr(LS_nibble_ir),
 												.dont_jmp(zero_flag),
+												// For cache
+												//.pm_addr(pm_address),
+												.hold_out(hold_out),
+												.rom_address(rom_address),
+												.cache_wroffset(cache_wroffset),
+												.cache_rdoffset(cache_rdoffset),
+												.cache_wrline(cache_wrline),
+												.cache_rdline(cache_rdline),
+												.cache_wren(cache_wren),
+												.cache_rdentry(cache_rdentry),
+												.cache_wrentry(cache_wrentry),
 												// For exam
 												.from_PS(from_PS),
 												.pc(pc)
 												);
 
+	// Insert NOPS instead of instructions while HOLD(susepend) is asserted
+	reg [7:0] pm_data_out;
+	always @*
+		if(hold_out)
+			pm_data_out = 8'hC8; // NOP
+		else
+			pm_data_out = cache_q;
+
 	instruction_decoder instr_decoder(.clk(clk), .sync_reset(sync_reset),
-												.next_instr(pm_data),
+												.next_instr(pm_data_out),
 												.jmp(jump),
 												.jmp_nz(conditional_jump),
 												.ir_nibble(LS_nibble_ir),
@@ -149,12 +186,26 @@ module MPU341_top(
 
 	// Old Program Memory MF Module
 	program_memory prog_mem(.clk(clk_n_ROM),
-								.addr(pm_address),
+								.addr(rom_address),
 								.data(pm_data));
 
 	// Questasim ROM
 	//Program_Memory_ROM prog_mem(.clock(clk_n_ROM),
 	//							.address(pm_address),
 	//							.q(pm_data));
+
+
+
+	// Cache Module
+	cache_set_assoc cache_ram(.clk(clk),
+									.data(pm_data),
+									.rdline(cache_rdline),
+									.wrline(cache_wrline),
+									.rdoffset(cache_rdoffset),
+									.wroffset(cache_wroffset),
+									.rdentry(cache_rdentry),
+									.wrentry(cache_wrentry),
+									.wren(cache_wren),
+									.q(cache_q));
 
 endmodule
