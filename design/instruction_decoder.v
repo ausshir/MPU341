@@ -5,7 +5,10 @@ module instruction_decoder(
 	output reg [3:0] ir_nibble,
 	output reg i_sel, y_sel, x_sel,
 	output reg [3:0] source_sel,
-	output reg [8:0] reg_en);
+	output reg [8:0] reg_en,
+	// For exam
+	output [7:0] from_ID,
+	output reg [7:0] ir);
 	
 	`define x0		3'b000
 	`define x1		3'b001
@@ -29,7 +32,7 @@ module instruction_decoder(
 	// 8-bit instruction is added into the instruction register on each
 	//		rising edge of the clock
 	//	There are 9 4-bit data regs, each assigned a 3-bit ID (see defs above)	
-	reg [7:0] ir;
+	//reg [7:0] ir;
 	always @(posedge clk)
 		ir = next_instr;
 	
@@ -118,7 +121,11 @@ module instruction_decoder(
 		
 		else if(`MOV)
 			if(ir[2:0] == ir[5:3]) // dest == source means use i_pins
-				source_sel = 4'd9;
+				// except when moving r to o_reg (shares ir)
+				if(ir[5:3] == `o_reg)
+					source_sel = 4'd4;
+				else
+					source_sel = 4'd9;
 			else
 				case(ir[2:0]) // source from other regs
 					`x0: source_sel = 4'd0;
@@ -149,18 +156,22 @@ module instruction_decoder(
 			{x_sel, y_sel, i_sel} = 3'b000;
 			
 		else if(`LOAD)
-			if(ir[6:4] == `dm) //load to DM
+			if(ir[6:4] == `i) //load to i
+				{x_sel, y_sel, i_sel} = 3'bxx0;
+			else if(ir[6:4] == `dm) //load to DM
 				{x_sel, y_sel, i_sel} = 3'bxx1;
 			else
 				{x_sel, y_sel, i_sel} = 3'bxxx;
 				
 		else if(`MOV)
+			if(ir[5:3] == `i) //writing to i
+				{x_sel, y_sel, i_sel} = 3'bxx0;
 		 // reading or writing to DM
-		 // with the exception of DM outputing to i_reg
-			if(((ir[2:0] == `dm) && (ir[5:3] != `i)) | (ir[5:3] == `dm))
+		 // with the exception of DM outputing to i_reg above (takes priority)
+			else if((ir[2:0] == `dm) | (ir[5:3] == `dm))
 				{x_sel, y_sel, i_sel} = 3'bxx1;
 			else
-				{x_sel, y_sel, i_sel} = 3'bxx0; // make sure i_sel is zero here!
+				{x_sel, y_sel, i_sel} = 3'bxxx;
 				
 		else if(`ALU)
 			// this one is a bit strange...
@@ -193,6 +204,11 @@ module instruction_decoder(
 	// output ir_nibble - this is the address of the jump
 	always @ *
 		ir_nibble = ir[3:0];
+		
+		
+		
+	// For exam
+	assign from_ID = reg_en[7:0];
 
 	
 endmodule
