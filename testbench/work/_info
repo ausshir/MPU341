@@ -1,0 +1,306 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/aus892/engr-ece/CME435/lab3
+vcomputational_unit
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+!i10b 1
+!s100 `B5I<<fDz4RjV^hB6X>C]1
+IOe0zPCZfBA1`CVC6<>0QI0
+R0
+w1450585728
+8mpu341/computational_unit.v
+Fmpu341/computational_unit.v
+L0 1
+Z2 OE;L;10.3a;59
+Z3 !s108 1476681143.460201
+Z4 !s107 mpu341/ram.v|mpu341/program_sequencer.v|mpu341/program_memory.v|mpu341/instruction_decoder.v|mpu341/computational_unit.v|mpu341/MPU341_top.v|
+Z5 !s90 -reportprogress|300|mpu341/MPU341_top.v|mpu341/computational_unit.v|mpu341/instruction_decoder.v|mpu341/program_memory.v|mpu341/program_sequencer.v|mpu341/ram.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vData_Memory_RAM
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 nFd9AZazcb:iO5Zd=1YdB0
+IdROanCQ56h5iSlFK4mIKD3
+R0
+w1474841875
+8mpu341/ram.v
+Fmpu341/ram.v
+L0 1
+R2
+R3
+R4
+R5
+!i113 0
+R6
+n@data_@memory_@r@a@m
+venv_m
+Z7 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 WColi7zYQ72JG]D`@6cdT1
+IQCeDB[nSG0JOJNO6>l^DE2
+!s105 env_sv_unit
+S1
+R0
+w1474678849
+8memtest2/env.sv
+Fmemtest2/env.sv
+L0 3
+R2
+Z8 !s108 1476681143.273081
+Z9 !s107 Timing.vh|memtest2/test.sv|memtest2/output_intf.sv|memtest2/input_intf.sv|memtest2/input_drvr.sv|memtest2/env.sv|
+Z10 !s90 -reportprogress|300|memtest2/env.sv|memtest2/input_drvr.sv|memtest2/input_intf.sv|memtest2/output_intf.sv|memtest2/test.sv|
+!i113 0
+R6
+vinput_drvr_m
+R7
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 nX?]gWY?^CEQ;mD]_l<Fi2
+IN57lHMBSWg9:KUaN:^a;53
+!s105 input_drvr_sv_unit
+S1
+R0
+w1474679456
+8memtest2/input_drvr.sv
+Fmemtest2/input_drvr.sv
+L0 1
+R2
+R8
+R9
+R10
+!i113 0
+R6
+Yinput_intf_i
+R7
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 <>94O`K``:bYlKOcZkJA40
+IR8hc=XDzAhCYb@35GAMim0
+!s105 input_intf_sv_unit
+S1
+R0
+w1474678177
+8memtest2/input_intf.sv
+Fmemtest2/input_intf.sv
+L0 1
+R2
+R8
+R9
+R10
+!i113 0
+R6
+vinstruction_decoder
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 dF2Y2@:5L5HLeVQTioGEA0
+IECYFDA;2CHMJEe=eSXm_Q1
+R0
+w1450584974
+8mpu341/instruction_decoder.v
+Fmpu341/instruction_decoder.v
+L0 1
+R2
+R3
+R4
+R5
+!i113 0
+R6
+vMPU341_top
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 fZ>3f<i?gaQ0@1<hZF7U81
+IbTF^anj:]R5=INhFT>FJ=2
+R0
+w1474842066
+8mpu341/MPU341_top.v
+Fmpu341/MPU341_top.v
+L0 1
+R2
+R3
+R4
+R5
+!i113 0
+R6
+n@m@p@u341_top
+Youtput_intf_i
+R7
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 E^ZhWzPoWiVUY_ag5_TcR3
+Ij]MCKB^4k0C2=RN_VXn@o0
+!s105 output_intf_sv_unit
+S1
+R0
+w1474676247
+8memtest2/output_intf.sv
+Fmemtest2/output_intf.sv
+L0 1
+R2
+R8
+R9
+R10
+!i113 0
+R6
+vprogram_memory
+!s110 1476681143
+!i10b 1
+!s100 m@KgWGjcM@Uf^7XBAW5m[2
+I]SRiW6>GzlM3FPdCldnTc1
+R1
+R0
+w1446524156
+8mpu341/program_memory.v
+Fmpu341/program_memory.v
+L0 1
+R2
+r1
+!s85 0
+31
+R3
+R4
+R5
+!i113 0
+R6
+vProgram_Memory_ROM
+R7
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 mgUCRaHVTFJa1_<gF9lLK2
+Ie?0J5^Db;Nz]C@HCo[;BG0
+!s105 rom_sv_unit
+S1
+R0
+w1476677509
+8mpu341/rom.sv
+Fmpu341/rom.sv
+L0 1
+R2
+!s108 1476681143.384126
+!s107 mpu341/rom.sv|
+!s90 -reportprogress|300|mpu341/rom.sv|
+!i113 0
+R6
+n@program_@memory_@r@o@m
+vprogram_sequencer
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 7NOKUJh^?DIzWG`kY8RJ12
+IYo0FGhHe:FMSMUK_TM1>E2
+R0
+w1450636322
+8mpu341/program_sequencer.v
+Fmpu341/program_sequencer.v
+L0 1
+R2
+R3
+R4
+R5
+!i113 0
+R6
+4test_program
+R7
+DXx4 work 12 test_sv_unit 0 22 V]`;bPc8[?KiMA<R]c>c92
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 [`ll0z9WjNOjY[16l3X<l3
+IoN[3j;<`nPCjJXVL?E5AM1
+Z11 !s105 test_sv_unit
+S1
+R0
+Z12 w1476681126
+Z13 8memtest2/test.sv
+Z14 Fmemtest2/test.sv
+L0 28
+R2
+Z15 !s108 1476681143.549236
+Z16 !s107 Timing.vh|memtest2/test.sv|
+Z17 !s90 -reportprogress|300|memtest2/test.sv|
+!i113 0
+R6
+Xtest_sv_unit
+R7
+VV]`;bPc8[?KiMA<R]c>c92
+r1
+!s85 0
+31
+!i10b 1
+!s100 9cgT:A4CA=?>PBz@GiUIz1
+IV]`;bPc8[?KiMA<R]c>c92
+!i103 1
+S1
+R0
+R12
+R13
+R14
+FTiming.vh
+L0 16
+R2
+R15
+R16
+R17
+!i113 0
+R6
+vtop
+R7
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 <NHCGVYRCJdYZW9NQE?J80
+ILXLSYnj?J@R2;kcnogNkO2
+R11
+S1
+R0
+R12
+R13
+R14
+L0 3
+R2
+R15
+R16
+R17
+!i113 0
+R6
